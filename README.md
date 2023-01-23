@@ -6,6 +6,6 @@ Making this game to learn basics of godot lol
 ## Credits
 - All assets by crimeraaa
 - Inspired by the hit game Flappy Bird by DotGears
--"Nano Hoedown" Kevin MacLeod (incompetech.com)
+- "Nano Hoedown" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
