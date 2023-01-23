@@ -1,0 +1,94 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "GameJoltAPIPromise",
+"language": "GDScript",
+"path": "res://addons/gamejolt_api/gamejolt_api_promise/GameJoltAPIPromise.gd"
+}, {
+"base": "HTTPRequest",
+"class": "GameJoltAPIRequest",
+"language": "GDScript",
+"path": "res://addons/gamejolt_api/gamejolt_api_request/GameJoltAPIRequest.gd"
+}, {
+"base": "Resource",
+"class": "GameSave",
+"language": "GDScript",
+"path": "res://GameSave.gd"
+}, {
+"base": "Resource",
+"class": "PlayerSkin",
+"language": "GDScript",
+"path": "res://ResScripts/PlayerSkin.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Scum",
+"language": "GDScript",
+"path": "res://Scenes/Scum.gd"
+} ]
+_global_script_class_icons={
+"GameJoltAPIPromise": "",
+"GameJoltAPIRequest": "",
+"GameSave": "",
+"PlayerSkin": "",
+"Scum": ""
+}
+
+[application]
+
+config/name="ScummyBird"
+run/main_scene="res://Scenes/Game.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Scenes/GameManager.tscn"
+Sounds="*res://Scenes/Sounds.tscn"
+GameJoltAPI="*res://addons/gamejolt_api/GameJoltAPI.tscn"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gamejolt_api/plugin.cfg" )
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Bird"
+2d_physics/layer_2="Pipe"
+2d_physics/layer_3="Wall"
+2d_physics/layer_4="PipePass"
+
+[network]
+
+ssl/certificates="res://addons/gamejolt_api/ssl/ca-certificates.crt"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.341176, 0.494118, 0.643137, 1 )
+environment/default_environment="res://default_env.tres"

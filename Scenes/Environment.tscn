@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/WallCollider.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/background_scummybird_190123.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/ground_scummybird_190123.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/parallax_scummybird_210123.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 259, 7.33333 )
+
+[node name="Environment" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="City1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 2304, 0 )
+
+[node name="ParallaxScummybird210123" type="Sprite" parent="ParallaxBackground/City1"]
+modulate = Color( 0.25098, 0.192157, 0.352941, 1 )
+position = Vector2( 892, 399 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="City2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2304, 0 )
+
+[node name="ParallaxScummybird210123" type="Sprite" parent="ParallaxBackground/City2"]
+modulate = Color( 0.196078, 0.137255, 0.294118, 1 )
+position = Vector2( 1099, 481 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="GroundParallax" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="GroundParallax"]
+motion_mirroring = Vector2( 504, 0 )
+
+[node name="WallSprite1" type="Sprite" parent="GroundParallax/ParallaxLayer"]
+position = Vector2( 581, 580 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 500, 16 )
+
+[node name="WallSprite2" type="Sprite" parent="GroundParallax/ParallaxLayer"]
+position = Vector2( 581, 20 )
+rotation = -3.14159
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 500, 16 )
+
+[node name="FloorCollider" type="StaticBody2D" parent="."]
+position = Vector2( 130, 580 )
+scale = Vector2( 3, 3 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCollider"]
+shape = SubResource( 3 )
+
+[node name="CeilingCollider" type="StaticBody2D" parent="."]
+position = Vector2( 130, 20 )
+rotation = -3.14159
+scale = Vector2( 3, 3 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingCollider"]
+shape = SubResource( 3 )
