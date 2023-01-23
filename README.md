@@ -1,5 +1,5 @@
 # ScummyBirdGame
-The source code of the hit game Scummy Bird by Crimera Games.
+The source code of the hit game [Scummy Bird](https://gamejolt.com/games/scumbagbird_2023/780718) by Crimera Games.
 ## About Scummy Bird
 Scummy Bird is a fun game for friends and family to enjoy. In this game, you take a control of a scumbag bird who ends up in a weird place with even weirder pipes. Can you get 100 points in this game? Well i think you can, so take a seat and download this game, this will definitely be an unforgettable experience!
 
